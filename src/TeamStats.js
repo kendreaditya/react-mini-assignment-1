@@ -1,11 +1,6 @@
 import React from 'react';
 
 class TeamStats extends React.Component {
-    constructor(props){
-        super(props)
-        this.props = props
-    }
-
     //if(this.state.error)
     error = () => {
         return (

@@ -20,10 +20,15 @@ class App extends React.Component {
       this.setState({error: true})
   }
 
+  predictTeam = (name) => {
+    let team = (data.filter((team_i)=>team_i.name.includes(name))[0]);
+    return (team===undefined ? '' : team.name)
+  }
+
   render () {
       return (
       <div className="ui container" style={{}}>
-        <SearchBar onSubmit={this.setTeam}/>
+        <SearchBar onSubmit={this.setTeam} onChange={this.predictTeam}/>
         <TeamStats team={this.state}/>
       </div>
     );
