@@ -3,13 +3,13 @@ import React from 'react';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: '', predictedValue: ''};
+    this.state = {value: ''};
   }
 
   handleChange = (event) => {
     // Question: How did you get target.value
     this.setState({value: event.target.value});
-    this.setState({predictedValue: this.props.onChange(this.state.value)})
+    this.props.onChange(this.state.value)
   }
 
   handleSubmit = (event) => {
@@ -33,9 +33,6 @@ class SearchBar extends React.Component {
                               autoComplete="off" 
                               type="text"/>
 
-                      <label htmlFor="search" style={{color: "lightgray", position: "absolute", right: "15px", lineHeight: "40px"}}>
-                        {this.state.predictedValue}
-                      </label>
                     </div>
                 </form>
             </div>

@@ -7,13 +7,15 @@ import data from './data'
 
 class App extends React.Component {
 
-  state = {conference: '', name: '', rank: null, wins: null, losses: null, logo: '', error: true}
+  state = {teams:[{conference: '', name: '', rank: null, wins: null, losses: null, logo: ''}], name: '', error: true}
 
   setTeam = (name) => {
-    let team = (data.filter((team_i)=>team_i.name===name)[0]);
-    if(team !== undefined)
+    this.setState({name: name})
+
+    let teams = (data.filter((team_i)=>team_i.name===name));
+    if(teams[0] !== undefined)
     {
-      this.setState(team);
+      this.setState({teams: teams});
       this.setState({error: false})
     }
     else
@@ -21,8 +23,16 @@ class App extends React.Component {
   }
 
   predictTeam = (name) => {
-    let team = (data.filter((team_i)=>team_i.name.includes(name))[0]);
-    return (team===undefined ? '' : team.name)
+    this.setState({name: name})
+
+    let teams = (data.filter((team_i)=>team_i.name.includes(name)));
+    if(teams[0] !== undefined)
+    {
+      this.setState({teams: teams});
+      this.setState({error: false})
+    }
+    else
+      this.setState({error: true})
   }
 
   render () {

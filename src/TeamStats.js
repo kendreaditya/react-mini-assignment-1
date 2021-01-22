@@ -1,7 +1,6 @@
 import React from 'react';
 
 class TeamStats extends React.Component {
-    //if(this.state.error)
     error = () => {
         return (
             <>
@@ -10,23 +9,23 @@ class TeamStats extends React.Component {
         )
     }
 
-    displayStats = () => {
+    displayStats = ({conference, name, rank, wins, losses, logo}) => {
         return (
             <>
             <div className="ui card">
                 <div className="content">
-                    <div className="header">{this.props.team.name}</div>
+                    <div className="header">{name}</div>
                     <div className="meta">
-                        <span className="category">{this.props.team.conference}</span>
+                        <span className="category">{conference}</span>
                     </div>
                     <div className="description">
-                        <img src={this.props.team.logo} alt="" height="250em"/>
+                        <img src={logo} alt="" height="250em"/>
                     </div>
                 </div>
                 <div className="extra content">
-                    <p>Rank: <strong>{this.props.team.rank}</strong></p>
-                    <p>Wins: <strong>{this.props.team.wins}</strong></p>
-                    <p>Losses: <strong>{this.props.team.losses}</strong></p>
+                    <p>Rank: <strong>{rank}</strong></p>
+                    <p>Wins: <strong>{wins}</strong></p>
+                    <p>Losses: <strong>{losses}</strong></p>
                 </div>
             </div>
             </>
@@ -41,7 +40,9 @@ class TeamStats extends React.Component {
             content = this.error()
         }
         else{
-            content = this.displayStats()
+            content = this.props.team.teams.map((team_i)=>{
+                return this.displayStats(team_i)
+            })
         }
         return (
                 <>
