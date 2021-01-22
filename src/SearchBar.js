@@ -33,7 +33,7 @@ class SearchBar extends React.Component {
                               autoComplete="off" 
                               type="text"/>
 
-                      <label htmlFor="search" style={{color: "lightgray", position: "absolute", right: "10px", lineHeight: "37px"}}>
+                      <label htmlFor="search" style={{color: "lightgray", position: "absolute", right: "15px", lineHeight: "40px"}}>
                         {this.state.predictedValue}
                       </label>
                     </div>

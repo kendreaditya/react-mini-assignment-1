@@ -24,9 +24,9 @@ class TeamStats extends React.Component {
                     </div>
                 </div>
                 <div className="extra content">
-                    <p>Rank: {this.props.team.rank}</p>
-                    <p>Wins: {this.props.team.wins}</p>
-                    <p>Losses: {this.props.team.losses}</p>
+                    <p>Rank: <strong>{this.props.team.rank}</strong></p>
+                    <p>Wins: <strong>{this.props.team.wins}</strong></p>
+                    <p>Losses: <strong>{this.props.team.losses}</strong></p>
                 </div>
             </div>
             </>
